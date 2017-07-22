@@ -32,5 +32,12 @@
 	  <form method="POST" enctype = "multipart/form-data">
 	     <input type=file name="fichier"><br/>
 		 <input type"submit" value="envoyer le fichier">
+		 
+		 <?php
+			   $req = $db->query('SELECT name, file_url FROM files');
+			     while ($data = $req->fetch()){
+					 echo '$data['name'].' : '.'<a href="'.$data['file_url'].'">telecharger'.$data['name'].'</a>'; 
+				 }
+?>
 		 </form>
 		 </html>
